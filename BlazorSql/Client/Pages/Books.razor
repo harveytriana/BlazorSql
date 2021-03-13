@@ -14,15 +14,15 @@
     <h6>@echo</h6>
 }
 else {
-    <table class="table" style="font-family:Consolas">
+    <table class="table table-sm">
         <thead>
             <tr>
-                <td>Title</td>
-                <td>Author</td>
-                <td>Language</td>
-                <td>Year</td>
-                <td>Link</td>
-                <td>Action</td>
+                <th>Title</th>
+                <th>Author</th>
+                <th>Language</th>
+                <th>Year</th>
+                <th>Link</th>
+                <th>Action</th>
             </tr>
         </thead>
         <tbody>
@@ -109,9 +109,6 @@ else {
     async Task SeedData()
     {
         echo = "Seeding database.collection...";
-
-        Console.WriteLine(echo);
-
         try {
             var data = await _http.GetFromJsonAsync<List<Book>>("api/addons/BooksSample");
             if (data != null) {
@@ -120,7 +117,6 @@ else {
         }
         catch (Exception exception) {
             echo = "Exception: " + exception.Message;
-            Console.WriteLine(echo);
         }
     }
 }
