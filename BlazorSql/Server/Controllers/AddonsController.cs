@@ -6,10 +6,10 @@ using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Hosting;
-using IO = System.IO;
 using System.Text.Json;
 using Microsoft.EntityFrameworkCore;
 using BlazorSql.Shared;
+using IO = System.IO;
 
 namespace BlazorSql.Server.Controllers
 {
@@ -32,7 +32,7 @@ namespace BlazorSql.Server.Controllers
             if (await _context.Books.AnyAsync()) {
                 return null;
             }
-            var file = $"{_path}/Statics/book_SEED.json";
+            var file = $"{_path}/Statics/books_sample.json";
 
             var data = JsonSerializer.Deserialize<List<Book>>(
                 IO.File.ReadAllText(file),
