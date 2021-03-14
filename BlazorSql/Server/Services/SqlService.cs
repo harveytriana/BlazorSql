@@ -55,7 +55,7 @@ namespace BlazorSql.Server.Services
             catch (Exception exception) {
                 ErrorMessage( exception.Message);
             }
-            await Task.Delay(100);
+            await Task.Delay(100); // escape
             return new List<T>();
         }
 
@@ -85,7 +85,7 @@ namespace BlazorSql.Server.Services
 
         static void ErrorMessage(string error)
         {
-            //TODO error log
+            //TODO error log or something
             Trace.WriteLine("Exception:\n" + error);
         }
     }

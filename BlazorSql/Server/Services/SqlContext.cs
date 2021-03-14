@@ -10,6 +10,7 @@ namespace BlazorSql.Server.Services
     {
         public DbSet<Book> Books { get; set; }
 
-        public SqlContext(DbContextOptions<SqlContext> options) : base(options) { }
+        public SqlContext(DbContextOptions<SqlContext> options)
+            : base(options) { }
     }
 }

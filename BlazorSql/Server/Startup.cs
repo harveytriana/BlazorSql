@@ -2,21 +2,21 @@ using BlazorSql.Server.Services;
 using BlazorSql.Shared;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.AspNetCore.ResponseCompression;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using System.Linq;
 
 namespace BlazorSql.Server
 {
     public class Startup
     {
-        public Startup(IConfiguration configuration)
+        readonly bool _IsDevelopment;
+
+        public Startup(IConfiguration configuration, IWebHostEnvironment env)
         {
             Configuration = configuration;
+            _IsDevelopment = env.IsDevelopment();
         }
 
         public IConfiguration Configuration { get; }
@@ -27,15 +27,17 @@ namespace BlazorSql.Server
             services.AddControllersWithViews();
             services.AddRazorPages();
 
+            //  Which connection am I going to use?
+            var connectionName = _IsDevelopment ? "DeveloperSql" : "RemoteSql";
+
             // SQL SERVER
             services.AddDbContext<SqlContext>(options => {
-                options.UseSqlServer(Configuration.GetConnectionString("LocalSql"));
+                options.UseSqlServer(Configuration.GetConnectionString(connectionName));
             });
             // SQL Entities
             services.AddScoped<IDataService<Book>, SqlService<Book>>();
         }
 
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment()) {
@@ -44,7 +46,6 @@ namespace BlazorSql.Server
             }
             else {
                 app.UseExceptionHandler("/Error");
-                // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
 
