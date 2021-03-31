@@ -8,6 +8,6 @@ A CRUD can be implemented in very few lines, and can be reused for different mod
 
 
 
-This article is published in [Blazor Spread Blog](https://www.blazorspread.net/blogview/27) (languages EN, ES, DE)
+This article is published in [Blazor Spread Blog](https://www.blazorspread.net/blogview/20) (languages EN, ES, DE)
 
 Licencia MIT
