@@ -1,4 +1,4 @@
-﻿# Soluciones sintetizadas de Blazor con SQL Server
+﻿# Synthesized Blazor Solutions with SQL Server
 
 *Write a REST API service by inheritance to dramatically reduce lines of code in data services with Microsoft SQL Server.*
 
