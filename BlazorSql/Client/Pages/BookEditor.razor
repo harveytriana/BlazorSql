@@ -91,10 +91,10 @@
     {
         HttpResponseMessage response;
         if (isEdit) {
-            response = await _http.PutAsJsonAsync($"api/books", item);
+            response = await _http.PutAsJsonAsync("api/books", item);
         }
         else {
-            response = await _http.PostAsJsonAsync($"api/books", item);
+            response = await _http.PostAsJsonAsync("api/books", item);
         }
         if (await Utils.ResponseResult(response) == true) {
             _navigation.NavigateTo("/Books");
