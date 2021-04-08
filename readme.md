@@ -1,6 +1,4 @@
-﻿# Bazor and Cosmos DB
-
----
+﻿# Synthesized Blazor Solutions with SQL Server
 
 *Write a REST API service by inheritance to dramatically reduce lines of code in data services with Microsoft SQL Server.*
 
@@ -10,6 +8,6 @@ A CRUD can be implemented in very few lines, and can be reused for different mod
 
 
 
-This article is published in [Blazor Spread Blog](https://www.blazorspread.net/blogview/22) (languages EN, ES, DE)
+This article is published in [Blazor Spread Blog](https://www.blazorspread.net/blogview/20) (languages EN, ES, DE)
 
 Licencia MIT
